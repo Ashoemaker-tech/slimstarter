@@ -11,7 +11,7 @@ class RouteGroup
     public $routes;
     public array $middleware = [];
 
-    public function __construct($app)
+    public function __construct(&$app)
     {
         $this->app = $app;
     }
@@ -19,17 +19,21 @@ class RouteGroup
     public function prefix(string $prefix)
     {
         $this->prefix = $prefix;
+
+        return $this;
     }
 
     public function routes($path = '')
     {
         $this->routes = $path;
+
         return $this;
     }
 
     public function middleware(array $middleware)
     {
         $this->middleware = $middleware;
+
         return $this;
     }
 
@@ -42,6 +46,7 @@ class RouteGroup
         });
 
         array_walk($this->middleware, fn ($middleware) => $group->add(new $middleware));
+
         Route::setup($this->app);
     }
 }
