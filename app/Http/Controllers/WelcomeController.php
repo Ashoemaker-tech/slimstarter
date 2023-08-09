@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-
+use App\Support\View;
 
 class WelcomeController
 {
-    public function index(Request $request, Response $response)
+    public function index(View $view)
     {
-        return view($request, $response, 'index.html');
+        return $view('index');
     }
 
-    public function show(Request $request, Response $response, $parameters)
+    public function show($response, $name)
     {
-        $name = $parameters['name'];
+
         $response->getBody()->write($name);
 
         return $response;

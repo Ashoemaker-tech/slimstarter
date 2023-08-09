@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <h1>Hello World from twig!</h1>
-    {% block content %}{% endblock %}
+    <h1>Hello World from blade again!</h1>
+    <?php echo $__env->yieldContent('content'); ?>
 </body>
 
 </html>
+<?php /**PATH C:\laragon\www\slimstarter\resources\views/layouts/app.blade.php ENDPATH**/ ?>
