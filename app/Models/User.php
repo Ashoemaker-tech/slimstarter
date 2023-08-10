@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-class User
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
 {
-    public function __construct()
-    {
-        var_dump('user created');
-    }
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email'
+    ];
+
+    protected $guarded = [
+        'password'
+    ];
 }

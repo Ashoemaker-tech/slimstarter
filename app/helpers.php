@@ -8,6 +8,20 @@ use Illuminate\Support\Collection;
  * Global helper functions
  */
 
+if (!function_exists('collect')) {
+    function collect($item)
+    {
+        return new Collection($item);
+    }
+}
+
+if (!function_exists('factory')) {
+    function factory(string $model, int $count = 1)
+    {
+        $factory = new Factory;
+        return $factory($model, $count);
+    }
+}
 if (!function_exists('env')) {
     function env($key, $default = false)
     {
@@ -62,6 +76,13 @@ if (!function_exists('app_path')) {
     function app_path($path = '')
     {
         return base_path("app/{$path}");
+    }
+}
+
+if (!function_exists('database_path')) {
+    function database_path($path = '')
+    {
+        return base_path("database/{$path}");
     }
 }
 
