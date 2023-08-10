@@ -1,16 +1,21 @@
 <?php
 
-/**
- * Autoload global dependencies and allow composer autoloading
- */
-require_once __DIR__ . '/../vendor/autoload.php';
+declare(strict_types=1);
 
-/**
- * Bootstrap application
- */
-$app = require_once __DIR__ . '/../bootstrap/app.php';
+use App\Http\Middleware\ExampleAfterMiddleware;
+use App\Http\Middleware\ExampleBeforeMiddleware;
+use Psr\Http\Message\ServerRequestInterface as RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Slim\Factory\AppFactory;
 
-/**
- * Running the app passing our requests through to the app
- */
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = AppFactory::create();
+
+$middleware = require __DIR__ . '/../app/middleware.php';
+$middleware($app);
+
+$routes = require __DIR__ . '/../app/routes.php';
+$routes($app);
+// Run the app
 $app->run();
