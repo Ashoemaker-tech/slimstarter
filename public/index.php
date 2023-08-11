@@ -1,21 +1,7 @@
 <?php
-
-declare(strict_types=1);
-
-use App\Http\Middleware\ExampleAfterMiddleware;
-use App\Http\Middleware\ExampleBeforeMiddleware;
-use Psr\Http\Message\ServerRequestInterface as RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Slim\Factory\AppFactory;
-
+// autoload dependencies with composer autoloader
 require __DIR__ . '/../vendor/autoload.php';
-
-$app = AppFactory::create();
-
-$middleware = require __DIR__ . '/../app/middleware.php';
-$middleware($app);
-
-$routes = require __DIR__ . '/../app/routes.php';
-$routes($app);
-// Run the app
+// boot up the application
+$app = require __DIR__ . '/../bootstrap/app.php';
+// passing request to the app
 $app->run();
