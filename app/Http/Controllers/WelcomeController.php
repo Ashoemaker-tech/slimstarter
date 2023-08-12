@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Support\View;
 
 class WelcomeController
 {
-    public function index(View $view)
+    public function index(View $view, User $user)
     {
-        $name = 'Andrew';
-
-        return $view('index', compact('name'));
+        $users = User::get();
+        return $view('index', compact('users'));
     }
 
     public function show(View $view, $name, $id)
