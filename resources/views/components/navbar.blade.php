@@ -45,7 +45,7 @@
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @if (auth())
-                    <span class="text-gray-100 font-sm">Welcome,
+                    <span class="text-gray-100 font-sm hidden sm:block">Welcome,
                         {{ auth()->username ?? 'Guest' }}</span>
                     <!-- Profile dropdown -->
                     <div x-data="{ dropdownOpen: false }" class="relative ml-3">
@@ -56,9 +56,7 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                <img class="h-8 w-8 rounded-full" src="{{ asset('images/user.png') }}" alt="">
                             </button>
                         </div>
 
@@ -94,13 +92,22 @@
     <div x-show="mobileMenu" x-cloak x-transition @click.outside="mobileMenu = false" class="sm:hidden"
         id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
+            @if (auth())
+                <div class="w-full text-center py-2">
+                    <span class="text-gray-100 font-sm md:hidden">Welcome,
+                        {{ auth()->username ?? 'Guest' }}</span>
+                </div>
+            @endif
+
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="/" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                 aria-current="page">Home</a>
-            <a href="/register"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Register</a>
-            <a href="/login"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Login</a>
+            @if (!auth())
+                <a href="/register"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Register</a>
+                <a href="/login"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Login</a>
+            @endif
         </div>
     </div>
 </nav>

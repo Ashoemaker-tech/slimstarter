@@ -29,5 +29,7 @@
         }
     },
     "scripts": {
+        "phinx": "./vendor/bin/phinx",
+        "refresh-database": ["./vendor/bin/phinx rollback", "./vendor/bin/phinx migrate", "./vendor/bin/phinx seed:run"]
     }
 }

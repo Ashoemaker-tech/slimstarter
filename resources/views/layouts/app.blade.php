@@ -21,8 +21,18 @@
             display: none !important;
         }
     </style>
-    @include('components.navbar')
-    @yield('content')
+    <div class="flex min-h-screen flex-col justify-start">
+        @include('components.navbar')
+        <div class="mt-5 container mx-auto">
+            @yield('content')
+        </div>
+        <footer class="bg-gray-800 mt-auto">
+            <div class="container mx-auto py-4">
+                <p class="text-white font-semibold text-center sm:text-xl">LaraSlim - Amazing PHP Development</p>
+            </div>
+        </footer>
+        <script src="{{ asset('js/app.js') }}"></script>
+    </div>
 </body>
 
 </html>

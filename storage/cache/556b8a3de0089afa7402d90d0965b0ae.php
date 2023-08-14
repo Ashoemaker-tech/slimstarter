@@ -21,8 +21,18 @@
             display: none !important;
         }
     </style>
-    <?php echo $__env->make('components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo $__env->yieldContent('content'); ?>
+    <div class="flex min-h-screen flex-col justify-start">
+        <?php echo $__env->make('components.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="mt-5 container mx-auto">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
+        <footer class="bg-gray-800 mt-auto">
+            <div class="container mx-auto py-4">
+                <p class="text-white font-semibold text-center sm:text-xl">LaraSlim - Amazing PHP Development</p>
+            </div>
+        </footer>
+        <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+    </div>
 </body>
 
 </html>

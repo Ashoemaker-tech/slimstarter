@@ -1,8 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-$app = require_once base_path('bootstrap/app.php');
-
+require_once './vendor/autoload.php';
+$app = require_once './bootstrap/app.php';
 return
     [
         'paths' => [
@@ -15,7 +14,7 @@ return
             'production' => [
                 'adapter' => env('DB_CONNECTION', 'mysql'),
                 'host' => env('DB_HOST', 'localhost'),
-                'name' => env('DB_DATABASE', 'laraslim'),
+                'name' => env('DB_NAME', 'laraslim'),
                 'user' => env('DB_USER', 'root'),
                 'pass' => env('DB_PASSWORD', ''),
                 'port' => env('DB_PORT', '3306'),
@@ -24,16 +23,7 @@ return
             'development' => [
                 'adapter' => env('DB_CONNECTION', 'mysql'),
                 'host' => env('DB_HOST', 'localhost'),
-                'name' => env('DB_DATABASE', 'laraslim'),
-                'user' => env('DB_USER', 'root'),
-                'pass' => env('DB_PASSWORD', ''),
-                'port' => env('DB_PORT', '3306'),
-                'charset' => 'utf8',
-            ],
-            'testing' => [
-                'adapter' => env('DB_CONNECTION', 'mysql'),
-                'host' => env('DB_HOST', 'localhost'),
-                'name' => env('DB_DATABASE', 'laraslim'),
+                'name' => env('DB_NAME', 'laraslim'),
                 'user' => env('DB_USER', 'root'),
                 'pass' => env('DB_PASSWORD', ''),
                 'port' => env('DB_PORT', '3306'),
