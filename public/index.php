@@ -1,4 +1,5 @@
 <?php
+session_start();
 // autoload dependencies with composer autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 // boot up the application

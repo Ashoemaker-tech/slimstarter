@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class MakeUsersTableMigration extends AbstractMigration
+final class MakeUserTableMigration extends AbstractMigration
 {
     /**
      * Change Method.
@@ -21,8 +21,7 @@ final class MakeUsersTableMigration extends AbstractMigration
     {
         $table = $this->table('users');
 
-        $table->addColumn('first_name', 'string', ['limit' => 128])
-            ->addColumn('last_name', 'string', ['limit' => 128])
+        $table->addColumn('username', 'string', ['limit' => 128])
             ->addColumn('email', 'string', ['limit' => 128])
             ->addColumn('password', 'string', ['limit' => 128])
             ->addTimestamps()

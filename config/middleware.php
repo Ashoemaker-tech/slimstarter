@@ -7,7 +7,11 @@ return [
         // \App\Http\Middleware\ExampleAfterMiddleware::class
     ],
     'middlewareGroups' => [
-        'api' => [],
-        'web' => []
+        'api' => [
+            \App\Http\Middleware\CsrfOverrideMiddleware::class
+        ],
+        'web' => [
+            \App\Http\Middleware\RouteContextMiddleware::class
+        ]
     ]
 ];

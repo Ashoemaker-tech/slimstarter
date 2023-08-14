@@ -16,7 +16,7 @@ class UsersTableSeeder extends AbstractSeed
     {
         factory(User::class, 10)->create([
             // example of overriding the default from the seeder
-            'first_name' => 'Andrew'
+            // 'username' => 'andrewshoemaker9'
         ]);
     }
 }

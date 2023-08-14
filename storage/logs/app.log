@@ -1,1 +1,0 @@
-[2023-08-11T18:34:25.852604+00:00] slimstarter.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laraslim.users' doesn't exist (Connection: default, SQL: select * from `users` where `users`.`id` = 1 limit 1) [] []

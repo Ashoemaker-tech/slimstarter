@@ -6,6 +6,10 @@ use Illuminate\Support\Collection;
 
 /* Global helper functions */
 /*
+ * validate
+ * auth
+ * guest
+ * redirect
  * collect
  * factory
  * env
@@ -24,6 +28,51 @@ use Illuminate\Support\Collection;
  * data_get
  * data_set
  */
+
+if (!function_exists('validate')) {
+    function validate($data)
+    {
+        $validate = new \App\Support\Validation($data);
+        return $validate;
+    }
+}
+if (!function_exists('csrf_field')) {
+    // This is the default function that blade calls from the @csrf directive
+    // This is the easiest way to wire it into the slim/csrf package
+    function csrf_field()
+    {
+        $csrf = app()->getContainer()->get('csrf');
+        $csrfNameKey = $csrf->getTokenNameKey();
+        $csrfValueKey = $csrf->getTokenValueKey();
+        $csrfName = $csrf->getTokenName();
+        $csrfValue = $csrf->getTokenValue();
+
+        $inputs = "
+        <input type=\"hidden\" name=\"{$csrfNameKey}\" value=\"{$csrfName}\"/>
+        <input type=\"hidden\" name=\"{$csrfValueKey}\" value=\"{$csrfValue}\"/>
+        ";
+        return $inputs;
+    }
+}
+if (!function_exists('auth')) {
+    function auth()
+    {
+        if (isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+            return (object) $user;
+        }
+        return false;
+    }
+}
+
+if (!function_exists('redirect')) {
+    function redirect(string $to)
+    {
+        $redirect = app()->getContainer()->get(\App\Support\Redirect::class);
+
+        return $redirect($to);
+    }
+}
 
 if (!function_exists('collect')) {
     function collect($items)

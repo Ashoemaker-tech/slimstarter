@@ -9,6 +9,7 @@ class WelcomeController
 {
     public function index(View $view, User $user)
     {
+        // dd('stop');
         $users = User::get();
         return $view('index', compact('users'));
     }
