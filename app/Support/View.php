@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-use RyanChandler\Blade\Blade;
+use Jenssegers\Blade\Blade;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
