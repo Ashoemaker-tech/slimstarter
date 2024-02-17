@@ -11,6 +11,7 @@
         integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous">
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ asset('js/index.js') }}" defer></script>
 
     <title>Laraslim</title>
 </head>
@@ -31,7 +32,6 @@
                 <p class="text-white font-semibold text-center sm:text-xl">LaraSlim - Amazing PHP Development</p>
             </div>
         </footer>
-        <script src="{{ asset('js/app.js') }}"></script>
     </div>
 </body>
 

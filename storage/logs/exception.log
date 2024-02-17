@@ -1,1 +1,0 @@
-[2023-08-13 00-33-13] Slim\Exception\HttpNotFoundException: Not found. #404 in C:\laragon\www\slimstarter\vendor\slim\slim\Slim\Middleware\RoutingMiddleware.php:76  @  http://localhost:8000/werwrwr  @@  exception--2023-08-13--00-33--922a910232.html

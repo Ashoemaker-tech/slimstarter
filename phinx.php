@@ -2,6 +2,7 @@
 
 require_once './vendor/autoload.php';
 $app = require_once './bootstrap/app.php';
+
 return
     [
         'paths' => [
@@ -10,23 +11,23 @@ return
         ],
         'environments' => [
             'default_migration_table' => 'phinxlog',
-            'default_environment' => env('APP_ENV', 'development'),
+            'default_getenvironment' => getenv('APP_getenv'),
             'production' => [
-                'adapter' => env('DB_CONNECTION', 'mysql'),
-                'host' => env('DB_HOST', 'localhost'),
-                'name' => env('DB_NAME', 'laraslim'),
-                'user' => env('DB_USER', 'root'),
-                'pass' => env('DB_PASSWORD', ''),
-                'port' => env('DB_PORT', '3306'),
+                'adapter' => getenv('DB_CONNECTION'),
+                'host' => getenv('DB_HOST'),
+                'name' => getenv('DB_NAME'),
+                'user' => getenv('DB_USERNAME'),
+                'pass' => getenv('DB_PASSWORD'),
+                'port' => getenv('DB_PORT'),
                 'charset' => 'utf8',
             ],
             'development' => [
-                'adapter' => env('DB_CONNECTION', 'mysql'),
-                'host' => env('DB_HOST', 'localhost'),
-                'name' => env('DB_NAME', 'laraslim'),
-                'user' => env('DB_USER', 'root'),
-                'pass' => env('DB_PASSWORD', ''),
-                'port' => env('DB_PORT', '3306'),
+                'adapter' => getenv('DB_CONNECTION'),
+                'host' => getenv('DB_HOST'),
+                'name' => getenv('DB_NAME'),
+                'user' => getenv('DB_USERNAME'),
+                'pass' => getenv('DB_PASSWORD'),
+                'port' => getenv('DB_PORT'),
                 'charset' => 'utf8',
             ]
         ],

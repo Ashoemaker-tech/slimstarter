@@ -10,7 +10,7 @@ class EnvironmentVariablesServiceProvider extends ServiceProvider
     public function register()
     {
         try {
-            $env = Dotenv::createImmutable(base_path());
+            $env = Dotenv::createUnsafeImmutable(base_path());
             $env->load();
         } catch (InvalidPathException $e) {
         }

@@ -1,0 +1,14 @@
+{
+  "name": "laraslim",
+  "module": "resources/ts/index.ts",
+  "type": "module",
+  "scripts": {
+    "build:watch": "bun build ./resources/ts/index.ts --outdir ./public/js --watch --minify"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

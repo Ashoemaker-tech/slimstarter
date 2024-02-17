@@ -12,7 +12,6 @@ use Illuminate\Support\Collection;
  * redirect
  * collect
  * factory
- * env
  * base_path
  * config_path
  * resources_path
@@ -25,8 +24,6 @@ use Illuminate\Support\Collection;
  * throw_when
  * class_basename
  * config
- * data_get
- * data_set
  */
 
 if (!function_exists('validate')) {
@@ -89,20 +86,10 @@ if (!function_exists('factory')) {
         return $factory($model, $count);
     }
 }
-
-if (!function_exists('env')) {
-    function env($key, $default = false)
-    {
-        $value = getenv($key);
-        throw_when(!$value and !$default, "{$key} is not a defined .env variable and has not default value");
-        return $value or $default;
-    }
-}
-
 if (!function_exists('asset')) {
     function asset($path)
     {
-        return env('APP_URL') . "/{$path}";
+        return getenv('APP_URL') . "/{$path}";
     }
 }
 
